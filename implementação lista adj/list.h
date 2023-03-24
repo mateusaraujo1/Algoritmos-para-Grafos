@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define vertex int
+
+typedef struct node *link;
+typedef struct graph *Graph;
+
+struct graph {
+    int V;
+    int A;
+    link *adj;
+};
+
+struct node {
+    vertex w;
+    link next;
+};
+
+Graph GRAPHinit( int V);
+void GRAPHinsertArc( Graph G, vertex v, vertex w);
+void GRAPHprint(Graph G);
+void GRAPHequal(Graph G, Graph H);
+void GRAPHremoveArc(Graph G, vertex v, vertex w);
+Graph GRAPHcompleto(vertex v);
