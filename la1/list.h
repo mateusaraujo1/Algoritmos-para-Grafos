@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define vertex int
 
@@ -23,3 +24,4 @@ void GRAPHprint(Graph G);
 void GRAPHequal(Graph G, Graph H);
 void GRAPHremoveArc(Graph G, vertex v, vertex w);
 Graph GRAPHcompleto(vertex v);
+bool GRAPHcheckWalk(Graph G, int v[], int tam);

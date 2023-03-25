@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "list.h"
 
 
@@ -31,7 +32,7 @@ void GRAPHinsertArc( Graph G, vertex v, vertex w) {
 }
 
 void GRAPHprint(Graph G) {
-    
+
     link node = malloc(sizeof(struct node));
 
     for (int i = 0; i < G->V; i++)
@@ -126,4 +127,35 @@ Graph GRAPHcompleto(vertex v) {
         } 
     }
     return G;
+}
+
+//questão 5 usando lista de adjacência
+
+bool GRAPHcheckWalk(Graph G, int v[], int tam) {
+
+    link node = malloc(sizeof(struct node));
+    int contArcos = 0;
+
+    node = G->adj[v[0]];
+
+    for (int i = 1; i < tam; i++)
+    {
+        for (node = G->adj[v[i-1]]; node; node = node->next)
+        {
+                //printf("teste\n");
+            if (node->w == v[i])
+            {
+                //node = G->adj[v[i]];
+                contArcos++;
+                break;
+            }
+        }
+    }
+
+    printf("%d\n", contArcos);
+
+    if (contArcos == tam-1)
+        return 1;
+    else
+        return 0;
 }
