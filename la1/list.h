@@ -15,6 +15,7 @@ struct graph {
 
 struct node {
     vertex w;
+    int visited;
     link next;
 };
 
@@ -25,3 +26,6 @@ void GRAPHequal(Graph G, Graph H);
 void GRAPHremoveArc(Graph G, vertex v, vertex w);
 Graph GRAPHcompleto(vertex v);
 bool GRAPHcheckWalk(Graph G, int v[], int tam);
+//void GRAPHciclosSimples(Graph G);
+void print_ciclos(Graph G);
+void GRAPHprint(Graph G);
