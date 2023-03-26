@@ -29,3 +29,4 @@ bool GRAPHcheckWalk(Graph G, int v[], int tam);
 //void GRAPHciclosSimples(Graph G);
 void print_ciclos(Graph G);
 void GRAPHprint(Graph G);
+Graph GRAPHrandTournament(int V);

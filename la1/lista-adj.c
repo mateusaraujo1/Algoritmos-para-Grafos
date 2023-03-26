@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include "list.h"
 #define MAX_VERTICES 100
 
@@ -131,6 +132,29 @@ Graph GRAPHcompleto(vertex v) {
     return G;
 }
 
+
+//questão 4
+
+Graph GRAPHrandTournament(int V) {
+
+    srand(time(NULL));
+    Graph G = GRAPHinit(V);
+    int num;
+
+    for (int i = 0; i < V; i++)
+    {
+        for (int j = i+1; j < V; j++)
+        {
+            num = rand() % 2;
+            if (num)
+                GRAPHinsertArc(G, j, i);
+            else
+                GRAPHinsertArc(G, i, j);
+        }
+    }
+    return G;
+}
+
 //questão 5 usando lista de adjacência
 
 bool GRAPHcheckWalk(Graph G, int v[], int tam) {
@@ -223,7 +247,6 @@ void RB_print(RB_node *t, void (*print)(void*, RB_colour)) {
 */
 
 // Função auxiliar para a busca em profundidade
-
 bool dfs(Graph G, int v, int parent, int start, bool* visited) {
     visited[v] = true;
 
