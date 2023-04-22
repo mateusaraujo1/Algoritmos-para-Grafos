@@ -1,0 +1,18 @@
+1°
+G->A = 0
+A função dfsR será chamada V vezes, marcando os vértices como visitados, mas como não há arestas não haverá recursividade
+
+G->V = 1
+Entrará na função dfsR e marcará o vértice como visitado, mas não vai chegar a usar recursividade
+
+
+2°
+if (pre[w] == -1)
+é a condição que verifica se o vértice já foi visitado ou não
+
+
+4°
+9->6->0->8->1->3->4->5->2->7
+
+6°
+Um grafo pode ter várias florestas DFS, de acordo com qual vértice é escolhido como a raiz da árvore em cada chamada do algoritmo DFS
