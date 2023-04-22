@@ -37,6 +37,7 @@ bool isTopoNumbering( Graph G, int topo[]);
 bool topol( Graph G);
 void SHOWtopo(Graph G);
 void GRAPHdfs( Graph G);
+void GRAPHbfs( Graph G, vertex s);
 
 int GRAPHindeg (Graph G, vertex v);
 

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "list_basic.h"
+#include "Queue.h"
 
 
 static link NEWnode( vertex w, link next);
@@ -181,4 +182,33 @@ void GRAPHdfs( Graph G)
 
    printf("\n");
    printPrev(G, prev);
+}
+
+static int num[1000];
+/* A função GRAPHbfs() implementa o algoritmo de busca em
+largura. Ela visita todos os vértices do grafo G que estão ao
+alcance do vértice s. A ordem em que os vértices são descobertos
+é registrada no vetor num[]. Esta versão da função supõe que o
+grafo G é representado por listas de adjacência. (Código
+inspirado no programa 18.9 de Sedgewick.) */
+void GRAPHbfs( Graph G, vertex s)
+{
+   int cnt = 0;
+   for (vertex v = 0; v < G->V; ++v)
+      num[v] = -1;
+   Queue *Q = Queue_alloc(G->V);
+   num[s] = cnt++;
+   Queue_push(Q, s);
+   printf("\n%d->", s);
+   while (!Queue_isEmpty(Q)) {
+      vertex v = Queue_pop(Q);
+      for (link a = G->adj[v]; a != NULL; a = a->next)
+         if (num[a->w] == -1) {
+            num[a->w] = cnt++;
+            Queue_push(Q, a->w);
+            printf("%d->", a->w);
+         }
+   }
+   printf("\n");
+   Queue_free(Q);
 }
